@@ -9,11 +9,32 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    @IBOutlet weak var Label: UILabel!
+    
+    @IBOutlet weak var prompt: UILabel!
+    
+    @IBOutlet weak var answer: UITextField!
 
-    override func viewDidLoad() {
+    @IBAction func submit(sender: AnyObject)
+    {
+        let random = String(arc4random_uniform(6))
+        if answer.text == random
+        {
+            prompt.text = "You're Right!"
+        }
+        else
+        {
+            prompt.text = "You're wrong! The number was " + String(random)
+        }
+    }
+    
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
